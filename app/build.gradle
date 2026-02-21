@@ -1,13 +1,19 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    // Required for modern AGP (Android Gradle Plugin 8.0+)
+    namespace 'jakhar.aseem.diva'
+
+    // Upgrade the SDK versions to a minimum modern standard (34 is current, but 33 is a safe target for legacy code)
+    compileSdkVersion 33
+
+    // You can safely remove buildToolsVersion, as modern Android Studio automatically
+    // uses the best version for your compileSdkVersion.
 
     defaultConfig {
         applicationId "jakhar.aseem.diva"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 33 // Match the target with compileSdkVersion
         versionCode 1
         versionName "1.0"
     }
@@ -25,8 +31,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'com.android.support:design:23.1.0'
+    // Replace all instances of 'compile' with 'implementation'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Replace 'testCompile' with 'testImplementation'
+    testImplementation 'junit:junit:4.12'
+
+    // The old Android Support libraries are heavily deprecated.
+    // You may need to upgrade these to AndroidX later, but for now, just change the keyword to get it to build.
+    implementation 'com.android.support:appcompat-v7:23.1.0'
+    implementation 'com.android.support:design:23.1.0'
 }

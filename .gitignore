@@ -1,8 +1,30 @@
+# Gradle
 .gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
 /build
-/captures
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local config
+/local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Build outputs
 /app/build
+/app/debug/
+/app/release/
+/captures
+
+# APK outputs (built artifacts)
+/APKs/
+*.apk
+
+# OS
+.DS_Store
+
+# Cursor
+.cursor/
